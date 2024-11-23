@@ -4,12 +4,16 @@ import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 import { Button } from "./ui/button"
+import { Author, Startup } from "@/sanity/types"
+
+// Type of Startup without the property of author
+export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author }
 
 const StartupCard = ({ key, post }: { key: number; post: StartupTypeCard }) => {
 	const {
 		_createdAt,
 		views,
-		author: { _id: authorId, name },
+		author,
 		_id,
 		description,
 		title,
@@ -28,18 +32,20 @@ const StartupCard = ({ key, post }: { key: number; post: StartupTypeCard }) => {
 
 			<div className="flex-between mt-5 gap-5">
 				<div className="flex-1">
-					<Link href={`/user/${authorId}`}>
-						<p className="text-16-medium line-clamp-1">{name}</p>
+					<Link href={`/user/${author?._id}`}>
+						<p className="text-16-medium line-clamp-1">
+							Published by: {author?.name}
+						</p>
 					</Link>
 
 					<Link href={`/startup/${_id}`}>
 						<h3 className="text-26-semibold">{title}</h3>
 					</Link>
 				</div>
-				<Link href={`/user/${authorId}`}>
+				<Link href={`/user/${author?._id}`}>
 					<Image
 						src="https://placehold.co/48x48"
-						alt={title}
+						alt={author?.name!}
 						width={48}
 						height={48}
 						className="rounded-full"
@@ -51,7 +57,7 @@ const StartupCard = ({ key, post }: { key: number; post: StartupTypeCard }) => {
 				<p className="startup-card_desc">{description}</p>
 
 				<Image
-					src={image}
+					src={image || "https://placehold.co/400x300"}
 					alt="placeholder"
 					width={400}
 					height={300}
@@ -60,7 +66,7 @@ const StartupCard = ({ key, post }: { key: number; post: StartupTypeCard }) => {
 			</Link>
 
 			<div className="flex-between gap-3 mt-5">
-				<Link href={`/?query=${category.toLowerCase()}`}>
+				<Link href={`/?query=${category?.toLowerCase()}`}>
 					<p className="text-16-medium">{category}</p>
 				</Link>
 				<Button className="startup-card_btn" asChild>

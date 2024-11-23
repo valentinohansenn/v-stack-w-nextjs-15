@@ -1,6 +1,7 @@
-import { title } from "process"
-import SearchBar from "../../components/SearchBar"
-import StartupCard from "@/components/StartupCard"
+import SearchBar from "@/components/SearchBar"
+import StartupCard, { StartupTypeCard } from "@/components/StartupCard"
+import { sanityFetch } from "@/sanity/lib/live"
+import { STARTUPS_QUERY } from "@/sanity/lib/queries"
 
 export default async function Home({
 	searchParams,
@@ -8,21 +9,10 @@ export default async function Home({
 	searchParams: Promise<{ query?: string }>
 }) {
 	const query = (await searchParams).query
+	const params = { search: query || null }
 
-	const posts = [
-		{
-			_createdAt: new Date(),
-			views: 55,
-			author: { _id: 1, name: "John Doe" },
-			_id: 1,
-			description:
-				"A platform that helps you find the best deals on the internet.",
-			title: "Deal Finder",
-			category: "E-Commerce",
-			image: "https://images.unsplash.com/photo-1622838320000-4b3b3b3b3b3b",
-		},
-	]
-
+	const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params })
+	console.log({ data: posts })
 	return (
 		<>
 			<section className="orange_container">
@@ -45,8 +35,8 @@ export default async function Home({
 
 				<ul className="mt-7 card_grid">
 					{posts.length > 0 ? (
-						posts.map((post: StartupCardType, index: number) => (
-							<StartupCard key={post.author?.id} post={post} />
+						posts.map((post: StartupTypeCard) => (
+							<StartupCard key={Number(post?._id)} post={post} />
 						))
 					) : (
 						<p className="no-results">No startups found.</p>

@@ -3,10 +3,13 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev --turbopack",
+		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"predev": "npm run typegen",
+		"prebuild": "npm run typegen",
+		"typegen": "sanity schema extract --path=./sanity/extract.json && sanity typegen generate"
 	},
 	"dependencies": {
 		"@radix-ui/react-slot": "^1.1.0",
@@ -19,10 +22,11 @@
 		"lucide-react": "^0.460.0",
 		"next": "15.0.3",
 		"next-auth": "^5.0.0-beta.25",
-		"next-sanity": "^9.8.3-canary.1",
+		"next-sanity": "^9.8.16",
 		"react": "19.0.0-rc-66855b96-20241106",
 		"react-dom": "19.0.0-rc-66855b96-20241106",
 		"sanity": "^3.64.2",
+		"sanity-plugin-markdown": "^5.0.0",
 		"styled-components": "^6.1.13",
 		"tailwind-merge": "^2.5.4",
 		"tailwindcss-animate": "^1.0.7"
