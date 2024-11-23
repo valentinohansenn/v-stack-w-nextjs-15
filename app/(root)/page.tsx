@@ -1,6 +1,6 @@
 import SearchBar from "@/components/SearchBar"
 import StartupCard, { StartupTypeCard } from "@/components/StartupCard"
-import { sanityFetch } from "@/sanity/lib/live"
+import { sanityFetch, SanityLive } from "@/sanity/lib/live"
 import { STARTUPS_QUERY } from "@/sanity/lib/queries"
 
 export default async function Home({
@@ -43,6 +43,8 @@ export default async function Home({
 					)}
 				</ul>
 			</section>
+
+			<SanityLive />
 		</>
 	)
 }
