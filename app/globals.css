@@ -64,7 +64,7 @@
 	}
 
 	.section_container {
-		@apply px-6 py-10 max-w-7xl mx-auto;
+		@apply px-6 py-10 max-w-4xl mx-auto;
 	}
 
 	.card_grid {

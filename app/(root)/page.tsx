@@ -13,7 +13,11 @@ export default async function Home({
 	const params = { search: query || null }
 
 	const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params })
-	console.log({ data: posts })
+
+	if (!posts) {
+		return <p>Failed to load data.</p>
+	}
+
 	return (
 		<>
 			<section className="orange_container">
@@ -29,7 +33,7 @@ export default async function Home({
 			</section>
 
 			{/* Start-ups Cards */}
-			<section className="section_container">
+			<section className="section_container !max-w-7xl">
 				<p className="text-30-semibold">
 					{query ? `Search results for "${query}"` : "All Startups"}
 				</p>

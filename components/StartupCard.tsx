@@ -9,7 +9,7 @@ import { Author, Startup } from "@/sanity/types"
 // Type of Startup without the property of author
 export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author }
 
-const StartupCard = ({ key, post }: { key: number; post: StartupTypeCard }) => {
+const StartupCard = ({ post }: { post: StartupTypeCard }) => {
 	const {
 		_createdAt,
 		views,
@@ -21,7 +21,7 @@ const StartupCard = ({ key, post }: { key: number; post: StartupTypeCard }) => {
 		image,
 	} = post
 	return (
-		<li className="startup-card group" key={key}>
+		<li className="startup-card group">
 			<div className="flex-between">
 				<p className="startup_card_date">{formatDate(_createdAt)}</p>
 				<div className="flex gap-1.5">
