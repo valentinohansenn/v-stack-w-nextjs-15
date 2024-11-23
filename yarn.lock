@@ -1273,10 +1273,10 @@
   dependencies:
     "@lezer/common" "^1.0.0"
 
-"@next/env@15.0.3":
-  version "15.0.3"
-  resolved "https://registry.npmjs.org/@next/env/-/env-15.0.3.tgz"
-  integrity sha512-t9Xy32pjNOvVn2AS+Utt6VmyrshbpfUMhIjFO60gI58deSo/KgLOp31XZ4O+kY/Is8WAGYwA5gR7kOb1eORDBA==
+"@next/env@15.0.4-canary.24":
+  version "15.0.4-canary.24"
+  resolved "https://registry.npmjs.org/@next/env/-/env-15.0.4-canary.24.tgz"
+  integrity sha512-Mo2v+ZsRrL9k8bX0/t5Fxe9cc1cXohTJhucpB5vPM+KpQuYTIasfFyGJR37dNZn6VJjTIY5si0x2JOjiTAR2QQ==
 
 "@next/eslint-plugin-next@15.0.3":
   version "15.0.3"
@@ -1285,10 +1285,10 @@
   dependencies:
     fast-glob "3.3.1"
 
-"@next/swc-darwin-arm64@15.0.3":
-  version "15.0.3"
-  resolved "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-15.0.3.tgz"
-  integrity sha512-s3Q/NOorCsLYdCKvQlWU+a+GeAd3C8Rb3L1YnetsgwXzhc3UTWrtQpB/3eCjFOdGUj5QmXfRak12uocd1ZiiQw==
+"@next/swc-darwin-arm64@15.0.4-canary.24":
+  version "15.0.4-canary.24"
+  resolved "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-15.0.4-canary.24.tgz"
+  integrity sha512-XM89N0Ap/UyjtU50KpZAoBrCtRJCVXE4IGFTM+rGfiqivNW4SBVDXkGj2eiJUmL+mlHVTRGBqWX/mEkWX6BJ1g==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -5690,12 +5690,12 @@ next-sanity@^9.8.16:
     groq "^3.64.1"
     history "^5.3.0"
 
-"next@^14.0.0-0 || ^15.0.0-0", "next@^14.1 || ^15.0.0-0", "next@^14.2 || ^15.0.0-0", "next@>= 13 || >=14.3.0-canary.0 <14.3.0 || >=15.0.0-rc", next@15.0.3:
-  version "15.0.3"
-  resolved "https://registry.npmjs.org/next/-/next-15.0.3.tgz"
-  integrity sha512-ontCbCRKJUIoivAdGB34yCaOcPgYXr9AAkV/IwqFfWWTXEPUgLYkSkqBhIk9KK7gGmgjc64B+RdoeIDM13Irnw==
+"next@^14.0.0-0 || ^15.0.0-0", "next@^14.1 || ^15.0.0-0", "next@^14.2 || ^15.0.0-0", next@^15.0.4-canary.24, "next@>= 13 || >=14.3.0-canary.0 <14.3.0 || >=15.0.0-rc":
+  version "15.0.4-canary.24"
+  resolved "https://registry.npmjs.org/next/-/next-15.0.4-canary.24.tgz"
+  integrity sha512-1GS+R2oBQhzJpX/yETEF4y9ov8yw4UXDiVUUSs/lXj4q8+zHd1fncRTgBFF+8hfD4Z6/BE8WXfLg2YK6aksSEQ==
   dependencies:
-    "@next/env" "15.0.3"
+    "@next/env" "15.0.4-canary.24"
     "@swc/counter" "0.1.3"
     "@swc/helpers" "0.5.13"
     busboy "1.6.0"
@@ -5703,14 +5703,14 @@ next-sanity@^9.8.16:
     postcss "8.4.31"
     styled-jsx "5.1.6"
   optionalDependencies:
-    "@next/swc-darwin-arm64" "15.0.3"
-    "@next/swc-darwin-x64" "15.0.3"
-    "@next/swc-linux-arm64-gnu" "15.0.3"
-    "@next/swc-linux-arm64-musl" "15.0.3"
-    "@next/swc-linux-x64-gnu" "15.0.3"
-    "@next/swc-linux-x64-musl" "15.0.3"
-    "@next/swc-win32-arm64-msvc" "15.0.3"
-    "@next/swc-win32-x64-msvc" "15.0.3"
+    "@next/swc-darwin-arm64" "15.0.4-canary.24"
+    "@next/swc-darwin-x64" "15.0.4-canary.24"
+    "@next/swc-linux-arm64-gnu" "15.0.4-canary.24"
+    "@next/swc-linux-arm64-musl" "15.0.4-canary.24"
+    "@next/swc-linux-x64-gnu" "15.0.4-canary.24"
+    "@next/swc-linux-x64-musl" "15.0.4-canary.24"
+    "@next/swc-win32-arm64-msvc" "15.0.4-canary.24"
+    "@next/swc-win32-x64-msvc" "15.0.4-canary.24"
     sharp "^0.33.5"
 
 node-html-parser@^6.1.13:
