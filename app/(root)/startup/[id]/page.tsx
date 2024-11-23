@@ -22,7 +22,6 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
 	}
 
 	const parsedMd = md.render(post?.pitch || "")
-	console.log({ parsedMd })
 
 	return (
 		<>
