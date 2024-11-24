@@ -2,7 +2,7 @@ import { defineQuery } from "next-sanity"
 
 export const STARTUPS_QUERY =
 	// Checking whether the search query is defined and matches the title, category, or author's name
-	defineQuery(`*[_type == "startup" && defined(slug.current) && !defined($search) || title match $search || category match $search || author->name match $search] | order(_createdAt desc) {
+	defineQuery(`*[_type == "startup" && defined(slug.current) && (!defined($search) || title match $search || category match $search || author->name match $search)] | order(_createdAt desc) {
   _id, 
   title, 
   slug,
@@ -38,7 +38,7 @@ export const STARTUP_VIEWS_QUERY =
 }`)
 
 export const AUTHOR_BY_GITHUB_ID_QUERY =
-	defineQuery(`*[_type == "author" && id == $id][0] {
+	defineQuery(`*[_type == "author" && _id == $id][0] {
   _id,
   name,
   username,
@@ -72,4 +72,26 @@ export const STARTUPS_BY_AUTHOR_QUERY =
   category,
   image,
   pitch,
+}`)
+
+export const PLAYLIST_BY_SLUG_QUERY =
+	// Checking whether the search query is defined and matches the title, category, or author's name
+	defineQuery(`*[_type == "playlist" &&  slug.current == $slug][0] {
+  _id, 
+  title, 
+  slug,
+  select[] -> {
+    _id,
+    _createdAt,
+    title,
+    slug,
+    author -> {
+      _id, name, slug, image, bio
+      },
+  views,
+  description,
+  category,
+  image,
+  pitch,
+  }
 }`)
