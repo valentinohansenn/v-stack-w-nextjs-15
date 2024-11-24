@@ -3,7 +3,6 @@ import SearchBar from "@/components/SearchBar"
 import StartupCard, { StartupTypeCard } from "@/components/StartupCard"
 import { sanityFetch, SanityLive } from "@/sanity/lib/live"
 import { STARTUPS_QUERY } from "@/sanity/lib/queries"
-import { log } from "console"
 
 export default async function Home({
 	searchParams,
@@ -14,7 +13,7 @@ export default async function Home({
 	// Search queries feature
 	const params = { search: query || null }
 	const session = await auth()
-	log(session?.id)
+
 	const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params })
 
 	if (!posts) {
@@ -43,8 +42,8 @@ export default async function Home({
 
 				<ul className="mt-7 card_grid">
 					{posts.length > 0 ? (
-						posts.map((post: StartupTypeCard) => (
-							<StartupCard key={Number(post?._id)} post={post} />
+						posts.map((post: StartupTypeCard, index: number) => (
+							<StartupCard key={post?._id} post={post} />
 						))
 					) : (
 						<p className="no-results">No startups found.</p>
