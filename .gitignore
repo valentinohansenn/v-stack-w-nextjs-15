@@ -41,3 +41,5 @@ next-env.d.ts
 
 # history
 .history/*
+# Sentry Config File
+.env.sentry-build-plugin
