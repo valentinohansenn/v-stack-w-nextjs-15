@@ -1,7 +1,9 @@
+import { auth } from "@/auth"
 import SearchBar from "@/components/SearchBar"
 import StartupCard, { StartupTypeCard } from "@/components/StartupCard"
 import { sanityFetch, SanityLive } from "@/sanity/lib/live"
 import { STARTUPS_QUERY } from "@/sanity/lib/queries"
+import { log } from "console"
 
 export default async function Home({
 	searchParams,
@@ -11,7 +13,8 @@ export default async function Home({
 	const query = (await searchParams).query
 	// Search queries feature
 	const params = { search: query || null }
-
+	const session = await auth()
+	log(session?.id)
 	const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params })
 
 	if (!posts) {

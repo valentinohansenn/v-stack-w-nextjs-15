@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
 	// Partial Pre-rendering (PPR) is an experimental feature that allows you to pre-render only a part of your page
 	experimental: {
 		ppr: "incremental",
+		after: true,
 	},
 	// Visualizes what happens during the PPR
 	devIndicators: {

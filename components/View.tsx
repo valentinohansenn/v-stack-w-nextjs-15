@@ -3,6 +3,8 @@ import Ping from "./Ping"
 import { client } from "@/sanity/lib/client"
 import { STARTUP_VIEWS_QUERY } from "@/sanity/lib/queries"
 import { formatViews } from "@/lib/utils"
+import { writeClient } from "@/sanity/lib/write-client"
+import { unstable_after as after } from "next/server"
 
 const View = async ({ id }: { id: string }) => {
 	const { views: totalViews } = await client
@@ -12,8 +14,15 @@ const View = async ({ id }: { id: string }) => {
 	if (!totalViews) {
 		return null
 	}
+	// Patch is used to update
+	after(
+		async () =>
+			await writeClient
+				.patch(id)
+				.set({ views: totalViews + 1 })
+				.commit()
+	)
 
-	// TODO: Update the number of views whenever the page is visited
 	return (
 		<div className="view-container">
 			<div className="absolute -top-2 -right-2">
