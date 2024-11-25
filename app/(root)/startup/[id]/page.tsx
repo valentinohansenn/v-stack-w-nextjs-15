@@ -23,7 +23,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
 	// Faster load-times
 	const [post, { select: editorStartups }] = await Promise.all([
 		client.fetch(STARTUP_BY_ID_QUERY, { id }),
-		client.fetch(PLAYLIST_BY_SLUG_QUERY, { slug: "editor-picks-new" }),
+		client.fetch(PLAYLIST_BY_SLUG_QUERY, { slug: "editor-s-picks" }),
 	])
 
 	if (!post) {
