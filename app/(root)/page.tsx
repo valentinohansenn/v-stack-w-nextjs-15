@@ -31,7 +31,7 @@ export default async function Home({
 					Search it up! Pitch it up! Validate it up! All in one place.
 				</p>
 
-				<SearchBar query={query} />
+				<SearchBar query={query || ""} />
 			</section>
 
 			{/* Start-ups Cards */}
